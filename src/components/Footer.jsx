@@ -1,25 +1,15 @@
 import React from 'react';
 
+const NAV_LINKS = ['About', 'Experience', 'Skills', 'Projects', 'Contact'];
+
 export default function Footer({ onLegal }) {
   const year = new Date().getFullYear();
 
-  const linkStyle = {
-    fontSize: '0.88rem',
-    color: 'rgba(255,255,255,0.6)',
-    display: 'block',
-    transition: 'color 0.2s',
-    lineHeight: 1.5,
-  };
-
-  const hover = e => e.currentTarget.style.color = '#fff';
-  const hout  = e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)';
-
   return (
-    <footer style={{ background: 'var(--black)', padding: '5rem 0 2.5rem' }}>
+    <footer style={{ background: 'var(--black)', padding: '5.5rem 0 2.5rem' }}>
       <div className="container">
 
-        {/* Main grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr', gap: '2.5rem', paddingBottom: '4rem', borderBottom: '1px solid rgba(255,255,255,0.07)', marginBottom: '2rem' }} className="footer-grid">
+        <div className="footer-grid">
 
           {/* Brand */}
           <div>
@@ -31,60 +21,72 @@ export default function Footer({ onLegal }) {
             }}>
               Pankti<br /><em>Patel</em>
             </p>
-            <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.85, marginBottom: '1.25rem' }}>
+            <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.38)', lineHeight: 1.9, marginBottom: '1.25rem' }}>
               Partnerships · Operations · Architecture<br />
               Germany · Europe
             </p>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.45rem 0.9rem', border: '1px solid rgba(74,222,128,0.2)', borderRadius: 100 }}>
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', boxShadow: '0 0 6px #4ade80', flexShrink: 0 }} />
-              <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.05em' }}>Open to Europe-wide roles</span>
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+              padding: '0.45rem 0.9rem',
+              border: '1px solid rgba(74,222,128,0.2)',
+              borderRadius: 100,
+            }}>
+              <span style={{
+                width: 6, height: 6, borderRadius: '50%',
+                background: '#4ade80', boxShadow: '0 0 6px #4ade80',
+                flexShrink: 0,
+              }} />
+              <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.05em' }}>
+                Open to Europe-wide roles
+              </span>
             </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '1.25rem' }}>
-              Navigation
-            </p>
+            <p style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em',
+              textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '1.25rem',
+            }}>Navigation</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
-              {['About', 'Experience', 'Skills', 'Projects', 'Contact'].map(l => (
-                <a key={l} href={`#${l.toLowerCase()}`} style={linkStyle} onMouseOver={hover} onMouseOut={hout}>{l}</a>
+              {NAV_LINKS.map(l => (
+                <a key={l} href={`#${l.toLowerCase()}`} className="footer-link">{l}</a>
               ))}
             </div>
           </div>
 
           {/* Connect */}
           <div>
-            <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '1.25rem' }}>
-              Connect
-            </p>
+            <p style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em',
+              textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '1.25rem',
+            }}>Connect</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
-              <a href="https://linkedin.com/in/panktipatel23" target="_blank" rel="noreferrer"
-                style={{ ...linkStyle, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
-                onMouseOver={hover} onMouseOut={hout}
+              <a
+                href="https://linkedin.com/in/panktipatel23"
+                target="_blank" rel="noreferrer"
+                className="footer-link"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}
               >
                 LinkedIn ↗
               </a>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.35)' }}>Germany</p>
+              <a href="mailto:panktipatel23@gmail.com" className="footer-link">
+                Email ↗
+              </a>
             </div>
           </div>
 
           {/* Legal */}
           <div>
-            <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '1.25rem' }}>
-              Legal
-            </p>
+            <p style={{
+              fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.18em',
+              textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '1.25rem',
+            }}>Legal</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
-              <button onClick={() => onLegal('privacy')} style={{
-                background: 'none', border: 'none', padding: 0,
-                ...linkStyle, textAlign: 'left', cursor: 'pointer',
-              }} onMouseOver={hover} onMouseOut={hout}>
+              <button onClick={() => onLegal('privacy')} className="footer-link">
                 Privacy Policy
               </button>
-              <button onClick={() => onLegal('terms')} style={{
-                background: 'none', border: 'none', padding: 0,
-                ...linkStyle, textAlign: 'left', cursor: 'pointer',
-              }} onMouseOver={hover} onMouseOut={hout}>
+              <button onClick={() => onLegal('terms')} className="footer-link">
                 Terms of Use
               </button>
             </div>
@@ -93,26 +95,15 @@ export default function Footer({ onLegal }) {
 
         {/* Bottom bar */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-          <p style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.25)' }}>
+          <p style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.22)' }}>
             © {year} Pankti Patel. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <button onClick={() => onLegal('privacy')} style={{ background: 'none', border: 'none', padding: 0, fontSize: '0.76rem', color: 'rgba(255,255,255,0.25)', cursor: 'pointer', transition: 'color 0.2s' }}
-              onMouseOver={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
-              onMouseOut={e => e.target.style.color = 'rgba(255,255,255,0.25)'}
-            >Privacy</button>
-            <button onClick={() => onLegal('terms')} style={{ background: 'none', border: 'none', padding: 0, fontSize: '0.76rem', color: 'rgba(255,255,255,0.25)', cursor: 'pointer', transition: 'color 0.2s' }}
-              onMouseOver={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
-              onMouseOut={e => e.target.style.color = 'rgba(255,255,255,0.25)'}
-            >Terms</button>
+            <button onClick={() => onLegal('privacy')} className="footer-bottom-link">Privacy</button>
+            <button onClick={() => onLegal('terms')}   className="footer-bottom-link">Terms</button>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } }
-        @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr !important; } }
-      `}</style>
     </footer>
   );
 }

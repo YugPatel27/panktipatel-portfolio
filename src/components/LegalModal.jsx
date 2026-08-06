@@ -1,5 +1,14 @@
 import React from 'react';
 
+function Section({ title, children }) {
+  return (
+    <div>
+      <p className="legal-section-title">{title}</p>
+      <p className="legal-section-body">{children}</p>
+    </div>
+  );
+}
+
 export default function LegalModal({ type, onClose }) {
   if (!type) return null;
 
@@ -18,31 +27,42 @@ export default function LegalModal({ type, onClose }) {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: '#111110', color: '#F0EDE8',
+          background: '#111110', color: 'var(--panel)',
           borderRadius: 24, maxWidth: 680, width: '100%',
           maxHeight: '85vh', overflowY: 'auto',
           border: '1px solid rgba(255,255,255,0.09)',
-          padding: '3rem',
-          position: 'relative',
+          padding: '3rem', position: 'relative',
         }}
       >
-        {/* Close */}
-        <button onClick={onClose} style={{
-          position: 'absolute', top: '1.5rem', right: '1.5rem',
-          background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)',
-          color: '#fff', borderRadius: '50%', width: 36, height: 36,
-          display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
-          fontSize: '1.1rem', fontWeight: 300,
-        }}>×</button>
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          aria-label="Close modal"
+          style={{
+            position: 'absolute', top: '1.5rem', right: '1.5rem',
+            background: 'rgba(255,255,255,0.07)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            color: '#fff', borderRadius: '50%',
+            width: 36, height: 36,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            cursor: 'pointer', fontSize: '1.1rem', fontWeight: 300,
+          }}
+        >×</button>
 
         {/* Header */}
-        <p style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '0.75rem' }}>
+        <p style={{
+          fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.2em',
+          textTransform: 'uppercase', color: 'var(--terra)', marginBottom: '0.75rem',
+        }}>
           {isPrivacy ? 'Privacy Policy' : 'Terms of Use'}
         </p>
-        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 300, color: '#fff', marginBottom: '0.5rem' }}>
+        <h2 style={{
+          fontFamily: 'var(--font-serif)', fontSize: '2rem',
+          fontWeight: 300, color: '#fff', marginBottom: '0.5rem',
+        }}>
           {isPrivacy ? 'How your information is handled' : 'Terms & conditions of use'}
         </h2>
-        <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)', marginBottom: '2.5rem' }}>
+        <p style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.3)', marginBottom: '2.5rem' }}>
           Last updated: June 2025 · Pankti Patel Portfolio
         </p>
 
@@ -50,13 +70,13 @@ export default function LegalModal({ type, onClose }) {
           {isPrivacy ? (
             <>
               <Section title="1. Information Collected">
-                This portfolio website does not automatically collect personal data. If you use the contact form, the information you provide — including your name, email address, and message — is used solely to respond to your enquiry. No data is stored on external servers through this form.
+                This portfolio website does not automatically collect personal data. If you use the contact form, the information you provide — your name, email address, and message — is used solely to respond to your enquiry. No data is stored on external servers through this form.
               </Section>
               <Section title="2. Cookies & Tracking">
                 This site does not use third-party tracking cookies, advertising pixels, or analytics platforms that collect identifiable user data. Basic browser behaviour (such as font loading from Google Fonts) may result in incidental data transfer to Google's servers, subject to Google's own privacy policy.
               </Section>
               <Section title="3. Data Usage">
-                Any personal information you voluntarily submit via the contact form is used exclusively to reply to your enquiry. Your data will not be sold, rented, or shared with any third party.
+                Any personal information voluntarily submitted via the contact form is used exclusively to reply to your enquiry. Your data will not be sold, rented, or shared with any third party.
               </Section>
               <Section title="4. Data Retention">
                 Contact enquiry data is retained only for the duration necessary to respond and is not stored in a permanent database.
@@ -77,13 +97,13 @@ export default function LegalModal({ type, onClose }) {
                 All content on this site — including text, imagery, and design — is the property of Pankti Patel unless otherwise credited. You may not reproduce, copy, or redistribute any content without express permission.
               </Section>
               <Section title="3. Accuracy of Information">
-                While every effort is made to ensure the accuracy of information presented, the content reflects the portfolio owner's personal experience and professional background. No guarantees are made regarding completeness or absolute accuracy.
+                While every effort is made to ensure accuracy, the content reflects the portfolio owner's personal experience and professional background. No guarantees are made regarding completeness or absolute accuracy.
               </Section>
               <Section title="4. External Links">
                 This site may contain links to external websites (e.g., LinkedIn). Pankti Patel is not responsible for the content, privacy practices, or terms of those external sites.
               </Section>
               <Section title="5. Limitation of Liability">
-                This portfolio website is provided in good faith. Pankti Patel accepts no liability for any loss or damage arising from use of this site or reliance on its content.
+                This portfolio is provided in good faith. Pankti Patel accepts no liability for any loss or damage arising from use of this site or reliance on its content.
               </Section>
               <Section title="6. Changes to These Terms">
                 These terms may be updated without prior notice. Continued use of the site implies acceptance of any updated terms.
@@ -95,15 +115,6 @@ export default function LegalModal({ type, onClose }) {
           )}
         </div>
       </div>
-    </div>
-  );
-}
-
-function Section({ title, children }) {
-  return (
-    <div>
-      <p style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '0.6rem' }}>{title}</p>
-      <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.85 }}>{children}</p>
     </div>
   );
 }
