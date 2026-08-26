@@ -16,12 +16,12 @@ const EXPERIENCES = [
     company: 'Naboo', location: 'Germany',
     summary: 'Managing end-to-end venue and service-provider partnerships across European B2B markets, building the operational systems that power partner acquisition and retention.',
     bullets: [
-      'Onboarded and managed 150+ venues and service providers across France, Germany, and wider Europe.',
-      'Maintained partner response times under 24 hours — enforcing a strict SLA framework across the team.',
-      'Processed 300+ partner quotations per month with high accuracy.',
-      'Redesigned onboarding documentation, accelerating partner activation speed.',
-      'Coordinated tailored B2B offers with Key Account Managers, contributing to measurable conversion uplift.',
-      'Trained 20+ new interns and produced standardised onboarding playbooks used across the team.',
+    'Onboarded and managed a network of 150+ venues and service providers across France, Germany, and wider Europe.',
+    'Maintained partner response times below 24 hours by implementing and enforcing a team-wide SLA framework.',
+    'Processed 300+ partner quotations per month with consistently high accuracy.',
+    'Redesigned onboarding documentation and workflows, accelerating partner activation.',
+    'Coordinated tailored B2B offers with Key Account Managers, contributing to measurable conversion uplifts.',
+    'Trained 20+ interns and produced standardized onboarding playbooks adopted across the team.',
     ],
   },
   {
